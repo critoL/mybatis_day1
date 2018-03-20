@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lkc.OAsystem.dto.TbDeptDTOMapper">
+    <resultMap id="DeptResultMap" type="com.lkc.OAsystem.dto.TbDeptDTO">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="deptTel" column="dept_tel"/>
+        <result property="deptCheif" column="dept_cheif"/>
+        <result property="deptAddress " column="dept_address"/>
+
+        <!--一对多-->
+        <collection property="userDTO" javaType="com.lkc.OAsystem.dto.TbUserDTO">
+            <id property="userId" column="user_id"/>
+            <result property="userName" column="user_name"/>
+            <result property="userEmail" column="user_email"/>
+            <result property="userWorkid" column="user_workid"/>
+            <result property="userEdu" column="user_edu"/>
+            <result property="userCollege" column="user_college"/>
+            <result property="userIDcard" column="user_IDcard"/>
+            <result property="userAddtime" column="user_addtime"/>
+            <result property="userPassword" column="user_password"/>
+            <result property="userSalt" column="user_salt"/>
+            <result property="userSex" column="user_sex"/>
+            <result property="userTel" column="user_tel"/>
+            <result property="userAddress" column="user_address"/>
+            <result property="userImg" column="user_img"/>
+            <result property="deptId" column="dept_id"/>
+        </collection>
+    </resultMap>
+</mapper>

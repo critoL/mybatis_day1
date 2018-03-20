@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace命名空间，当前文档的一个标识符-->
+<mapper namespace="com.lkc.OAsystem.dto.TbUserDTOMapper">
+    <!--resultMap结果集的映射-->
+    <!--id是当前resultMap的唯一标识-->
+    <!--type是结果的类型-->
+    <resultMap id="UserResultMap" type="com.lkc.OAsystem.dto.TbUserDTO">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userWorkid" column="user_workid"/>
+        <result property="userEdu" column="user_edu"/>
+        <result property="userCollege" column="user_college"/>
+        <result property="userIDcard" column="user_IDcard"/>
+        <result property="userAddtime" column="user_addtime"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userSalt" column="user_salt"/>
+        <result property="userSex" column="user_sex"/>
+        <result property="userTel" column="user_tel"/>
+        <result property="userAddress" column="user_address"/>
+        <result property="userImg" column="user_img"/>
+        <result property="deptId" column="dept_id"/>
+
+        <!--多对一-->
+        <association property="deptDTO" javaType="com.lkc.OAsystem.dto.TbDeptDTO">
+            <id property="deptId" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+            <result property="deptTel" column="dept_tel"/>
+            <result property="deptCheif" column="dept_cheif"/>
+            <result property="deptAddress " column="dept_address"/>
+        </association>
+        
+        <!--一对多-->
+        <collection property="overorleavetimeDTOS" ofType="com.lkc.OAsystem.dto.TbOverorleavetimeDTO">
+            <id property="overtimeId" column="overtime_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="overtimeBegin" column="overtime_begin"/>
+            <result property="overtimeEnd" column="overtime_end"/>
+            <result property="leavetimeBegin" column="leavetime_begin"/>
+            <result property="leavetimeEnd" column="leavetime_end"/>
+        </collection>
+        <!--一对多-->
+        <collection property="checkDTOS" ofType="com.lkc.OAsystem.dto.TbCheckDTO">
+            <id property="checkId" column="check_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="onDuty" column="on_duty"/>
+            <result property="offDuty" column="off_duty"/>
+        </collection>
+        <!--一对多-->
+        <collection property="annunciateDTOS" ofType="com.lkc.OAsystem.dto.TbAnnunciateDTO">
+            <id property="annuId" column="annu_id"/>
+            <result property="annuTitle" column="annu_title"/>
+            <result property="annuTxt" column="annu_txt"/>
+            <result property="annuAuthor" column="annu_author"/>
+            <result property="userId" column="user_id"/>
+        </collection>
+       </resultMap>
+</mapper>
